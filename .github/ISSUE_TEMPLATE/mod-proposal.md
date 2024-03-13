@@ -8,3 +8,5 @@ labels: ['type-mod']
 <!--Forge 1.20.1 + Connector-->
 <!--给版本链接，给config说明；别放旧版链接在这-->
 <!--注意你的 平 衡 性-->
+
+<!--把 dependencies 链接也放这，减少一下组包工作量-->
