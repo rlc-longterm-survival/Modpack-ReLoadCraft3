@@ -1,0 +1,4 @@
+/mods/*
+/mods/.connector/
+/kubejs/probe/
+/kubejs/.vscode/

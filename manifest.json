@@ -1,0 +1,18 @@
+{
+  "manifestType": "minecraftModpack",
+  "manifestVersion": 1,
+  "name": "ReLoadCraft3",
+  "version": "1.1",
+  "author": "Mokou",
+  "overrides": "overrides",
+  "minecraft": {
+    "version": "1.20.1",
+    "modLoaders": [
+      {
+        "id": "forge-47.2.20",
+        "primary": true
+      }
+    ]
+  },
+  "files": []
+}
