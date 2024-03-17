@@ -1,26 +1,17 @@
-BlockEvents.broken(evt => {
-  let { player, block } = evt
+(() => {
+  // Prevent dropping board or piece in Creative Mode
+  BlockEvents.broken(evt => {
+    let { player, block } = evt
 
-  if(block.getId() != 'chessmod:chess_piece' && block.getId() != 'chessmod:board_block') {
-    return
-  }
+    if(block.getId() != 'chessmod:chess_piece' && block.getId() != 'chessmod:board_block') {
+      return
+    }
 
-  if(player.isCreative()) {
-    block.getLevel().setBlockAndUpdate(block.pos, Blocks.AIR.blockStates[0])
-    evt.cancel()
-  }
-})
-
-BlockEvents.rightClicked(evt => {
-  let { player, block, server } = evt
-
-  if(block.getId() != 'chessmod:chess_piece') {
-    return
-  }
-
-  if(!player.isShiftKeyDown() || !player.mainHandItem.isEmpty()) {
-    return
-  }
+    if(player.isCreative()) {
+      block.getLevel().setBlockAndUpdate(block.pos, Blocks.AIR.blockStates[0])
+      evt.cancel()
+    }
+  })
 
   function getPieceName(piece, color) {
     let pieceNames = [ "Pawn", "Knight", "Bishop", "Rook", "King", "Queen", "Checkers Piece", "Checkers King Piece" ]
@@ -31,13 +22,66 @@ BlockEvents.rightClicked(evt => {
     return colorNames[color] + " " + pieceNames[piece];
   }
 
-  let props = block.properties
-  let dyeTag = +props.get('dye')
-  let pieceTag = +props.get('piece')
-  let givingStuff = Item.of('chessmod:chess_piece').withNBT({
-    dye: NBT.intTag(dyeTag),
-    piece: NBT.intTag(pieceTag),
-    display: { Name: '{"text":"' + getPieceName(pieceTag, dyeTag) + '"}' }
+  // Swap a piece by right clicking.
+  BlockEvents.rightClicked(evt => {
+    let { player, block, server } = evt
+
+    if(block.getId() != 'chessmod:chess_piece') {
+      return
+    }
+    if(player.isShiftKeyDown() || player.mainHandItem.id != 'chessmod:chess_piece' || !player.offHandItem.isEmpty()) {
+      return
+    }
+
+    let props = block.properties
+    let dyeTag = +props.get('dye')
+    let pieceTag = +props.get('piece')
+    let givingStuff = Item.of('chessmod:chess_piece').withNBT({
+      dye: NBT.intTag(dyeTag),
+      piece: NBT.intTag(pieceTag),
+      display: { Name: '{"text":"' + getPieceName(pieceTag, dyeTag) + '"}' }
+    })
+
+    block.getLevel().setBlockAndUpdate(block.pos, Blocks.AIR.blockStates[0]) // clear the old piece
+    player.getMainHandItem().useOn(new (Java.loadClass('net.minecraft.world.item.context.UseOnContext'))(
+      player, Java.loadClass('net.minecraft.world.InteractionHand').MAIN_HAND,
+      new (Java.loadClass('net.minecraft.world.phys.BlockHitResult'))(
+        player.pos,
+        Java.loadClass('net.minecraft.core.Direction').UP,
+        block.pos,
+        false
+      )
+    )) // place the player's item
+
+    // use piece replacing if creative. Swap if survival.
+    if(!player.isCreative()) {
+      player.setMainHandItem(givingStuff)
+    }
+
+    evt.cancel()
   })
-  player.give(givingStuff)
-})
+
+  // Pick a piece by shift-right clicking.
+  BlockEvents.rightClicked(evt => {
+    let { player, block, server } = evt
+
+    if(block.getId() != 'chessmod:chess_piece') {
+      return
+    }
+
+    if(!player.isShiftKeyDown() || !player.mainHandItem.isEmpty() || !player.offhandItem.isEmpty()) {
+      return
+    }
+
+    let props = block.properties
+    let dyeTag = +props.get('dye')
+    let pieceTag = +props.get('piece')
+    let givingStuff = Item.of('chessmod:chess_piece').withNBT({
+      dye: NBT.intTag(dyeTag),
+      piece: NBT.intTag(pieceTag),
+      display: { Name: '{"text":"' + getPieceName(pieceTag, dyeTag) + '"}' }
+    })
+    block.getLevel().setBlockAndUpdate(block.pos, Blocks.AIR.blockStates[0])
+    player.setMainHandItem(givingStuff)
+  })
+})()
