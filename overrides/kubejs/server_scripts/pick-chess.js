@@ -53,10 +53,7 @@
       )
     )) // place the player's item
 
-    // use piece replacing if creative. Swap if survival.
-    if(!player.isCreative()) {
-      player.setMainHandItem(givingStuff)
-    }
+    player.setMainHandItem(givingStuff)
 
     evt.cancel()
   })
