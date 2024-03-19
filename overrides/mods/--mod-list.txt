@@ -91,6 +91,7 @@ Mode                 LastWriteTime         Length Name
 -a---           2024/3/14    19:52         215119 NaturesCompass-1.20.1-1.11.2-forge.jar
 -a---           2024/3/13    23:16         272740 NoChatReports-FORGE-1.20.1-v2.2.2.jar
 -a---           2024/3/16     0:04         420640 notenoughanimations-forge-1.7.1-mc1.20.1.jar
+-a---           2024/3/19    13:03          65197 oculus-flywheel-compat-1.20.1-0.2.2.jar
 -a---           2024/3/13    22:57        2806358 oculus-mc1.20.1-1.6.15a.jar
 -a---           2024/3/13    23:02         642506 Patchouli-1.20.1-84-FORGE.jar
 -a---           2024/3/15    19:34         282709 paucal-forge-1.20.1-0.6.0.jar
