@@ -1,5 +1,5 @@
 
-    Directory: E:\Users\yezhiyi9670\Documents\MC-server\ReLoadCraft3\client-overrides\overrides\mods
+    Directory: E:\Users\yezhiyi9670\Documents\MC-server\ReLoadCraft3\_works\client-overrides\overrides\mods
 
 Mode                 LastWriteTime         Length Name
 ----                 -------------         ------ ----
@@ -23,7 +23,6 @@ Mode                 LastWriteTime         Length Name
 -a---           2024/3/15    19:35          38169 caelus-forge-3.1.0+1.20.jar
 -a---           2024/3/16    20:29         251902 chessmod-forge-1.1.4-1.20.jar
 -a---           2024/3/13    23:36        1168391 cloth-config-11.1.118-forge.jar
--a---           2024/3/14    20:13        1261651 CompactVoidMiners-R1.20.1-1.21.jar
 -a---           2024/3/14    19:45         705479 compressedcreativity-1.20.1-0.1.8.b.jar
 -a---           2024/3/13    23:19         418924 configured-forge-1.20.1-2.2.2.jar
 -a---           2024/3/13    22:54        4450199 Connector-1.0.0-beta.37+1.20.1.jar
