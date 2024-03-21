@@ -53,7 +53,7 @@
       )
     )) // place the player's item
 
-    player.setMainHandItem(givingStuff)
+    player.give(givingStuff)
 
     evt.cancel()
   })
@@ -79,6 +79,6 @@
       display: { Name: '{"text":"' + getPieceName(pieceTag, dyeTag) + '"}' }
     })
     block.getLevel().setBlockAndUpdate(block.pos, Blocks.AIR.blockStates[0])
-    player.setMainHandItem(givingStuff)
+    player.give(givingStuff)
   })
 })()
