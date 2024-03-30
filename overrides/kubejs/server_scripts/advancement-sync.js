@@ -1,4 +1,21 @@
 (() => {
+  // 配置：排除进度
+  // 排除的进度仍然会计入 advancement-sync count，但是不能
+  let _excludedAdvancements = [
+    'botania:challenge/infinite_fruit',
+    'botania:challenge/flugel_eye',
+    'botania:challenge/king_key',
+    'botania:challenge/loki_ring',
+    'botania:challenge/odin_ring',
+    'botania:challenge/thor_ring',
+  ]
+  let excludedAdvancements = {}
+  for(let advancement of _excludedAdvancements) {
+    excludedAdvancements[advancement] = true
+  }
+
+
+
   let tickCount = 0
   let tickInterval = 10
 
@@ -61,9 +78,15 @@
     const server = event.server
     const players = server.getPlayerList().getPlayers()
     let isGranted = false
-    for(let player of players) {
-      for(let id of advancementList) {
-        if(gainedAdvancements[id] && !player.isAdvancementDone(id)) {
+    for(let id of advancementList) {
+      if(excludedAdvancements[id]) {
+        continue
+      }
+      if(!gainedAdvancements[id]) {
+        continue
+      }
+      for(let player of players) {
+        if(!player.isAdvancementDone(id)) {
           if(!isGranted) {
             server.runCommandSilent('gamerule announceAdvancements false')
           }
