@@ -1,0 +1,21 @@
+
+[General]
+	#Booster Tier 1 FE per tick to operate
+	t1_fe_per_tick = 5000
+	#Booster Tier 1 boost rate
+	t1_boost_rate = 2
+	#Booster Tier 2 FE per tick to operate
+	t2_fe_per_tick = 10000
+	#Booster Tier 2 boost rate
+	t2_boost_rate = 5
+	#Mana Booster mana per tick to operate
+	mana_per_tick = 100
+	#Mana Booster boost rate
+	mana_booster_rate = 5
+	#Deactivate booster with redstone signal
+	deactivate_with_redstone = true
+	#Blacklist of block entities (example: "minecraft:furnace","somemod:machine")
+	black_list = ["blockbooster:booster_t1", "blockbooster:booster_t2", "blockbooster:booster_mana"]
+	#Whitelist of block entities (example: "minecraft:furnace","somemod:machine") has higher priority
+	white_list = []
+
