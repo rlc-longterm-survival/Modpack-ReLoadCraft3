@@ -93,6 +93,7 @@ Mode                 LastWriteTime         Length Name
 -a---           2024/3/14    19:52         215119 NaturesCompass-1.20.1-1.11.2-forge.jar
 -a---            2024/6/3    13:18        3082214 neruina-forge-2.0.0-beta.10+1.20.1.jar
 -a---           2024/3/13    23:16         272740 NoChatReports-FORGE-1.20.1-v2.2.2.jar
+-a---           2024/6/22    11:42         220842 noisium-forge-2.0.3+mc1.20-1.20.1.jar
 -a---           2024/3/16     0:04         420640 notenoughanimations-forge-1.7.1-mc1.20.1.jar
 -a---            2024/4/3    16:11         473368 observable-4.4.1.jar
 -a---           2024/3/19    13:03          65197 oculus-flywheel-compat-1.20.1-0.2.2.jar
@@ -103,6 +104,7 @@ Mode                 LastWriteTime         Length Name
 -a---           2024/3/14     0:10        1186936 polylib-forge-2000.0.3-build.97.jar
 -a---           2024/3/14     0:01          66512 ponderjs-1.20.1-1.3.1.jar
 -a---           2024/3/16    20:33        1895592 Powah-5.0.5.jar
+-a---           2024/6/22    11:46           5793 redirector-5.0.0.jar
 -a---           2024/3/15    23:11          95951 remove-terralith-intro-message-1.0.jar
 -a---           2024/3/14    20:22         136630 resourcefulconfig-forge-1.20.1-2.1.2.jar
 -a---           2024/3/14    20:22         424230 resourcefullib-forge-1.20.1-2.1.23.jar
