@@ -110,11 +110,22 @@
           }
           const player = ctx.source.player
           let gainedCnt = 0
-          for(let id in gainedAdvancements) {
-            gainedCnt += 1
+          let ungained = []
+          for(let id of advancementList) {
+            if(gainedAdvancements[id]) {
+              gainedCnt += 1
+            } else {
+              ungained.push(id)
+            }
           }
           if(player) {
             player.tell('Gained ' + gainedCnt + '/' + advancementList.length + ' advancements')
+            if(ungained.length <= 10) {
+              player.tell('The ' + ungained.length + ' remaining advancement(s) are:')
+              for(let id of ungained) {
+                player.tell('- ' + id)
+              }
+            }
           }
           return 1
         })
