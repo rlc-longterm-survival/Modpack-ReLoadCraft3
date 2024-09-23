@@ -1,6 +1,6 @@
 (() => {
   // 配置：排除进度
-  // 排除的进度仍然会计入 advancement-sync count，但是不能
+  // 排除的进度仍然会计入 advancement-sync count，但是不能同步给其他玩家
   let _excludedAdvancements = [
     'botania:challenge/infinite_fruit',
     'botania:challenge/flugel_eye',
@@ -120,7 +120,9 @@
           }
           if(player) {
             player.tell('Gained ' + gainedCnt + '/' + advancementList.length + ' advancements')
-            if(ungained.length <= 10) {
+            if(ungained.length == 0) {
+              player.tell('All done! Congratulations!')
+            } else if(ungained.length <= 10) {
               player.tell('The ' + ungained.length + ' remaining advancement(s) are:')
               for(let id of ungained) {
                 player.tell('- ' + id)
